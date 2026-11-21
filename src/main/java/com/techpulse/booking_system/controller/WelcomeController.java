@@ -9,6 +9,7 @@ import com.techpulse.booking_system.repository.UserRepository;
 import com.techpulse.booking_system.service.UserService;
 import com.techpulse.booking_system.util.JwtUtil;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,11 +24,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/welcome")
 @Slf4j
+@RequiredArgsConstructor
 public class WelcomeController {
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
-    private JwtUtil jwtUtil;
+
+    private final AuthenticationManager authenticationManager;
+
+    private final JwtUtil jwtUtil;
 
     @Autowired
     private UserService userService;

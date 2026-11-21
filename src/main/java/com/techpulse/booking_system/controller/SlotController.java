@@ -6,6 +6,7 @@ import com.techpulse.booking_system.dto.response.SlotResponse;
 import com.techpulse.booking_system.service.SlotService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -18,9 +19,10 @@ import java.util.List;
 @SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/slots")
+@RequiredArgsConstructor
 public class SlotController {
-    @Autowired
-    private SlotService slotService;
+
+    private final SlotService slotService;
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")

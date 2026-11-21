@@ -28,3 +28,6 @@ server:
   servlet:
     context-path: /booking-system
 
+jwt:
+  secret: mine-very-long-and-secure-secret-key-here-at-least-32-characters
+  expiration: 86400000

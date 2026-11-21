@@ -6,6 +6,7 @@ import com.techpulse.booking_system.entity.Slot;
 import com.techpulse.booking_system.entity.SlotStatus;
 import com.techpulse.booking_system.repository.SlotRepository;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,11 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class SlotService {
 
-    @Autowired
-    private SlotRepository slotRepository;
+
+    private final SlotRepository slotRepository;
 
     @Transactional
     public SlotResponse createSlot(@Valid SlotRequest slotRequest) {

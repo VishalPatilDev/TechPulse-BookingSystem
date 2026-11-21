@@ -4,6 +4,7 @@ import com.techpulse.booking_system.entity.Role;
 import com.techpulse.booking_system.entity.User;
 import com.techpulse.booking_system.repository.UserRepository;
 import com.techpulse.booking_system.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,12 +16,13 @@ import static com.techpulse.booking_system.entity.Role.USER;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
+    private final UserRepository userRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {

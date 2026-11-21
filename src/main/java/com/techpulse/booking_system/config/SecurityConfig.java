@@ -2,6 +2,7 @@ package com.techpulse.booking_system.config;
 
 import com.techpulse.booking_system.security.CustomUserDetailsService;
 import com.techpulse.booking_system.security.JwtFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +20,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
-    @Autowired
-    private JwtFilter jwtFilter;
+
+    private final CustomUserDetailsService userDetailsService;
+
+    private final JwtFilter jwtFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.csrf(c->c.disable())

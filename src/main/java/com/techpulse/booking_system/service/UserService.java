@@ -8,6 +8,7 @@ import com.techpulse.booking_system.exception.UserAlreadyExistsException;
 import com.techpulse.booking_system.repository.UserRepository;
 import com.techpulse.booking_system.util.JwtUtil;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,14 +16,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private JwtUtil jwtUtil;
+    private final UserRepository userRepository;
+
+
+    private final PasswordEncoder passwordEncoder;
+
+    private final JwtUtil jwtUtil;
 
     public AuthResponse register(@Valid UserRequestDto userRequestDto) {
         if (userRepository.existsByUsername(userRequestDto.getUsername())) {

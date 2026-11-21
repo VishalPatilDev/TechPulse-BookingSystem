@@ -10,6 +10,7 @@ import com.techpulse.booking_system.repository.BookingRepository;
 import com.techpulse.booking_system.repository.SlotRepository;
 import com.techpulse.booking_system.repository.UserRepository;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +18,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class BookingService {
-    @Autowired
-    private BookingRepository bookingRepository;
-    @Autowired
-    private SlotRepository slotRepository;
-    @Autowired
-    private UserRepository userRepository;
+
+    private final BookingRepository bookingRepository;
+
+    private final SlotRepository slotRepository;
+
+    private final UserRepository userRepository;
 
     //Helper Method
     private BookingResponse toResponse(Booking booking){

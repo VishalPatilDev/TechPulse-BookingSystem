@@ -6,6 +6,7 @@ import com.techpulse.booking_system.dto.response.BookingResponse;
 import com.techpulse.booking_system.service.BookingService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,10 @@ import org.springframework.web.bind.annotation.*;
 @SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("bookings")
+@RequiredArgsConstructor
 public class BookingController {
-    @Autowired
-    private BookingService bookingService;
+
+    private final BookingService bookingService;
 
     @PostMapping
     @PreAuthorize("hasRole('USER')")
