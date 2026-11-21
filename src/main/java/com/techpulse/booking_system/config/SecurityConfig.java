@@ -28,6 +28,7 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        //disabling csrf because we are using jwt stateless authentication
         return http.csrf(c->c.disable())
                 .authorizeHttpRequests(req->
                         req.requestMatchers("/welcome/**").permitAll()

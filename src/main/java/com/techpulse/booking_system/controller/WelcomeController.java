@@ -31,10 +31,10 @@ public class WelcomeController {
 
     private final JwtUtil jwtUtil;
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserService userService;
+
+    private final UserRepository userRepository;
 
 
     @GetMapping
