@@ -71,7 +71,11 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(ApiResponse.error("Invalid username or password"));
     }
-    @ExceptionHandler(jakarta.persistence.PessimisticLockException.class)
+    @ExceptionHandler({
+    jakarta.persistence.PessimisticLockException.class,
+    org.hibernate.PessimisticLockException.class,
+    org.springframework.dao.PessimisticLockingFailureException.class,
+    org.springframework.dao.CannotAcquireLockException.class})
     public ResponseEntity<ApiResponse<Void>> handlePessimisticLock(Exception ex) {
         log.warn("Pessimistic lock conflict: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT)

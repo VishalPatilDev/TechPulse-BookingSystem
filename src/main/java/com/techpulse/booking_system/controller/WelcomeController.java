@@ -60,6 +60,7 @@ public class WelcomeController {
 
         log.info("User logged in: {}", authRequest.getUsername());
         AuthResponse response = AuthResponse.builder()
+                .id(user.getId())
                 .token(token)
                 .username(user.getUsername())
                 .userRole(user.getRole())

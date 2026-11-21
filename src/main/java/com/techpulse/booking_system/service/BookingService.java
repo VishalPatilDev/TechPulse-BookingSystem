@@ -45,6 +45,11 @@ public class BookingService {
                 .orElseThrow(()->
                         new ResourceNotFoundException("Slot not found with id : "+bookingRequest.getSlotId()));
 
+        try {
+            Thread.sleep(3000);   // 3 seconds – perfect for demo
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         if(slot.getSlotStatus() == SlotStatus.BOOKED){
             throw new SlotNotAvailableException("Slot "+bookingRequest.getSlotId()+" is already booked !");
         }
