@@ -31,3 +31,8 @@ server:
 jwt:
   secret: mine-very-long-and-secure-secret-key-here-at-least-32-characters
   expiration: 86400000
+
+
+default:
+  user:
+    password:12345
