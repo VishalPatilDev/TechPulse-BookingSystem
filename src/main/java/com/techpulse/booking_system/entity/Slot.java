@@ -1,13 +1,19 @@
 package com.techpulse.booking_system.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "slots")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Slot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +26,5 @@ public class Slot {
     private LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
-    private SlotStatus slotStatus;
+    private SlotStatus slotStatus = SlotStatus.AVAILABLE;
 }
