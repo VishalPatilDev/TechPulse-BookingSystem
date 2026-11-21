@@ -18,4 +18,7 @@ public class Slot {
 
     @Column(name = "end_time")
     private LocalDateTime endTime;
+
+    @Enumerated(EnumType.STRING)
+    private SlotStatus slotStatus;
 }

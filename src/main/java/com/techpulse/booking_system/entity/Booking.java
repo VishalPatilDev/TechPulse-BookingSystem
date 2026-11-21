@@ -14,7 +14,13 @@ public class Booking {
     private Long id;
 
 //    private Long slotId;
+    //private Long userId;
+
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
+
+
 }
