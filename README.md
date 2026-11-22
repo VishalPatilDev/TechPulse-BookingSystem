@@ -343,3 +343,8 @@ Click **Authorize** and paste your JWT token (without the `Bearer ` prefix) to t
 | `Thread.sleep(3000)` in `bookSlot()` | Intentional delay included to make concurrent booking demos observable; remove for production |
 | Global exception handler | All errors return a consistent `ApiResponse` shape with meaningful messages |
 | `application.yaml` over `application.properties` | As specified in the assignment requirements |
+
+
+
+# Drive Link for video : 
+https://drive.google.com/file/d/1SEYJopCaLcG5emuyi4HJ8eogjaTZ-4Sy/view?usp=drive_link
