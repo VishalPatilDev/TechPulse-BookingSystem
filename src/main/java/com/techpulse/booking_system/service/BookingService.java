@@ -46,7 +46,6 @@ public class BookingService {
         Slot slot = slotRepository.findByIdWithLock(bookingRequest.getSlotId())
                 .orElseThrow(()->
                         new ResourceNotFoundException("Slot not found with id : "+bookingRequest.getSlotId()));
-
         try {
             Thread.sleep(3000);   // 3 seconds – perfect for demo
         } catch (InterruptedException e) {

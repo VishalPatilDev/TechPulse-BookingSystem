@@ -27,6 +27,7 @@ class SlotServiceTest {
 
     @InjectMocks
     private SlotService slotService;
+    
 
     private SlotRequest validRequest;
     private LocalDateTime start;
